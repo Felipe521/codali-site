@@ -1,0 +1,160 @@
+@import "tailwindcss";
+@import "./estilos/base.css";
+@import "./estilos/hero.css";
+@import "./estilos/componentes.css";
+
+/* ==========================================================================
+   Sistema visual Codali
+   Grafite e violeta vêm do site oficial (#25282A e #7D11F0).
+   Neutros minerais (cimento, gesso, papel) dão o tom arquitetônico.
+   ========================================================================== */
+@theme {
+  --color-tinta: #0b0c0d;
+  --color-noite: #121315;
+  --color-carvao: #1a1c1e;
+  --color-grafite: #25282a;
+  --color-aco: #34383c;
+  --color-chumbo: #5d6268;
+  --color-nevoa: #9aa0a6;
+  --color-cinza-claro: #c9c7c1;
+  --color-cimento: #e4e2dc;
+  --color-gesso: #efeee9;
+  --color-papel: #f8f7f4;
+
+  --color-violeta: #7d11f0;
+  --color-violeta-claro: #a66cff;
+  --color-violeta-suave: #d9c4ff;
+  --color-violeta-profundo: #5a0bb0;
+
+  --color-verde-slim: #4fbf45;
+  --color-vermelho-slim: #dd2c36;
+  --color-lilas-slim: #a866c4;
+  --color-cinza-slim: #a0a6a2;
+  --color-ambar: #f2a33a;
+  --color-folha: #4fbf6a;
+  --color-alerta: #ff6b6b;
+  --color-alerta-escuro: #c42b33;
+
+  --font-sans: "Archivo Codali", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Plex Mono Codali", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cortina: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --breakpoint-xs: 30rem;
+  --breakpoint-3xl: 112rem;
+}
+
+/* --------------------------------------------------------------------------
+   Tipografia de exibição — Archivo expandida, peso alto, entrelinha curta
+   -------------------------------------------------------------------------- */
+@utility display-hero {
+  font-size: clamp(2.55rem, 10.6vw, 3.6rem);
+  font-weight: 760;
+  font-stretch: 114%;
+  line-height: 0.93;
+  letter-spacing: -0.045em;
+  @media (min-width: 640px) {
+    font-size: clamp(3.4rem, 6.4vw, 7.8rem);
+  }
+}
+@utility display-manifesto {
+  font-size: clamp(2.35rem, 9.6vw, 3.4rem);
+  font-weight: 740;
+  font-stretch: 114%;
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  @media (min-width: 640px) {
+    font-size: clamp(2.8rem, 4.6vw, 5.6rem);
+  }
+}
+@utility display-valor {
+  font-size: clamp(2.1rem, 9vw, 3rem);
+  font-weight: 740;
+  font-stretch: 112%;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  @media (min-width: 640px) {
+    font-size: clamp(2.6rem, 4.9vw, 5.6rem);
+  }
+}
+@utility display-xl {
+  font-size: clamp(2.9rem, 8.4vw, 10.5rem);
+  font-weight: 760;
+  font-stretch: 118%;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+}
+@utility display-l {
+  font-size: clamp(2.4rem, 6vw, 7.25rem);
+  font-weight: 740;
+  font-stretch: 115%;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+@utility display-m {
+  font-size: clamp(1.95rem, 3.9vw, 4.4rem);
+  font-weight: 700;
+  font-stretch: 112%;
+  line-height: 1;
+  letter-spacing: -0.032em;
+}
+@utility display-s {
+  font-size: clamp(1.45rem, 2.2vw, 2.35rem);
+  font-weight: 640;
+  font-stretch: 108%;
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+}
+@utility texto-corpo {
+  font-size: clamp(1rem, 0.94rem + 0.25vw, 1.15rem);
+  line-height: 1.65;
+  font-weight: 400;
+  font-stretch: 100%;
+}
+@utility rotulo {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+@utility contorno {
+  color: transparent;
+  -webkit-text-stroke: 1.2px currentColor;
+}
+@utility container-site {
+  width: 100%;
+  max-width: 1680px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4.2vw, 4.5rem);
+}
+@utility empilhada {
+  position: relative;
+  margin-top: -1.5rem;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  box-shadow: 0 -30px 60px -30px rgb(0 0 0 / 0.35);
+  @media (min-width: 1024px) {
+    margin-top: -2.5rem;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+  }
+}
+@utility secao {
+  padding-block: clamp(5.5rem, 12vw, 11rem);
+}
+@utility malha-escura {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+@utility malha-clara {
+  background-image:
+    linear-gradient(to right, rgb(37 40 42 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(37 40 42 / 0.06) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
